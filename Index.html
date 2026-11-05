@@ -1,0 +1,447 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BizFlow | Smart Business Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h2 class="logo">BizFlow<span>.</span></h2>
+
+            
+<nav>
+    <a href="#overview" class="active">Dashboard</a>
+    <a href="#task-section">Tasks</a>
+    <a href="#projects-section">Projects</a>
+    <a href="#customers-section">Customers</a>
+    <a href="#settings-section">Settings</a>
+</nav>
+
+
+            <div class="sidebar-footer">
+                <p>Smart Business Management</p>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+ <!-- =================================
+     TOP HEADER
+================================= -->
+
+<header class="topbar" id="overview">
+
+    <div class="topbar-left">
+        <h1>Dashboard</h1>
+        <p>Welcome back! Here's your business overview.</p>
+    </div>
+
+    <div class="topbar-right">
+    <div class="profile-dropdown" id="profileDropdown">
+
+        <button class="profile-info" id="profileToggle" type="button">
+            <span class="profile-icon">👤</span>
+            <span>Admin</span>
+            <span class="dropdown-arrow">⌄</span>
+        </button>
+
+        <div class="profile-menu" id="profileMenu">
+            <button type="button" id="signOutBtn">
+                <span>↪</span> Sign Out
+            </button>
+        </div>
+
+    </div>
+</div>
+
+</header>
+
+
+<!-- =================================
+     DASHBOARD WELCOME
+================================= -->
+
+<div class="dashboard-welcome">
+
+    <div>
+        <p class="welcome-label">BUSINESS OVERVIEW</p>
+
+        <h2>
+            Welcome to
+            <span id="dashboardBusinessName">My Business</span> 👋
+        </h2>
+
+        <p>Here's what's happening with your business today.</p>
+    </div>
+
+</div>
+<!-- =================================
+     BUSINESS SUMMARY CARDS
+================================= -->
+
+<!-- Statistics -->
+<section class="stats-grid">
+
+    <div class="stat-card">
+        <p>Total Tasks</p>
+        <h2 id="totalTasks">0</h2>
+        <span>All business tasks</span>
+    </div>
+
+    <div class="stat-card">
+        <p>Completed</p>
+        <h2 id="completedTasks">0</h2>
+        <span>Tasks completed</span>
+    </div>
+
+    <div class="stat-card">
+        <p>Pending</p>
+        <h2 id="pendingTasks">0</h2>
+        <span>Tasks remaining</span>
+    </div>
+
+    <div class="stat-card">
+        <p>Total Projects</p>
+        <h2 id="totalProjects">0</h2>
+        <span>All business projects</span>
+    </div>
+
+    <div class="stat-card">
+        <p>Total Customers</p>
+        <h2 id="totalCustomers">0</h2>
+        <span>All business customers</span>
+    </div>
+
+</section>
+
+            <!-- Dashboard Analytics -->
+            <section class="dashboard-grid">
+
+                <!-- Task Progress -->
+                <div class="dashboard-card">
+                    <div class="section-header">
+                        <div>
+                            <h2>Task Progress</h2>
+                            <p>Your overall task completion</p>
+                        </div>
+                    </div>
+
+                    <div class="progress-info">
+                        <h3 id="progressPercentage">0%</h3>
+                        <span>Completed</span>
+                    </div>
+
+                    <div class="progress-track">
+                        <div
+                            class="progress-fill"
+                            id="progressBar"
+                            style="width: 0%">
+                        </div>
+                    </div>
+
+                    <div class="progress-legend">
+                        <span>Completed: <strong id="progressCompleted">0</strong></span>
+                        <span>Pending: <strong id="progressPending">0</strong></span>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="dashboard-card">
+                    <div class="section-header">
+                        <div>
+                            <h2>Recent Activity</h2>
+                            <p>Your latest business updates</p>
+                        </div>
+                    </div>
+
+                    <div id="recentActivity" class="activity-list">
+                        <p class="empty-activity">No recent activity yet.</p>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Task Manager -->
+            <section class="task-section" id="task-section">
+
+<!-- =================================
+     PROJECT MANAGEMENT
+================================= -->
+
+<section class="project-section" id="projects-section">
+
+    <div class="section-header">
+        <div>
+            <h2>Projects Management</h2>
+            <p>Manage your business projects in one place.</p>
+        </div>
+    </div>
+
+    <!-- Project Form -->
+
+    <form id="projectForm" class="project-form">
+
+        <input
+            type="text"
+            id="projectName"
+            placeholder="Project name..."
+            required
+        >
+
+        <input
+            type="text"
+            id="projectClient"
+            placeholder="Client name..."
+        >
+
+        <input
+            type="date"
+            id="projectDeadline"
+            title="Project deadline"
+        >
+
+        <select id="projectStatus">
+            <option value="Planning">Planning</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+        </select>
+
+        <button type="submit" id="projectSubmit">
+            + Add Project
+        </button>
+
+    </form>
+
+    <!-- Project Search and Filter -->
+
+    <div class="project-controls">
+
+        <input
+            type="text"
+            id="projectSearch"
+            placeholder="Search projects..."
+        >
+
+        <select id="projectFilter">
+            <option value="all">All Projects</option>
+            <option value="Planning">Planning</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+        </select>
+
+    </div>
+
+    <!-- Project List -->
+
+    <div id="projectList" class="project-list">
+        <!-- Projects will appear here using JavaScript -->
+    </div>
+
+</section>
+
+<!-- =================================
+     CUSTOMERS MANAGEMENT
+================================= -->
+
+<section class="customer-section" id="customers-section">
+
+    <div class="section-header">
+        <div>
+            <h2>Customers Management</h2>
+            <p>Manage your customer relationships and contact details.</p>
+        </div>
+    </div>
+
+    <!-- Customer Form -->
+
+    <form id="customerForm" class="customer-form">
+
+        <input
+            type="text"
+            id="customerName"
+            placeholder="Customer full name..."
+            required
+        >
+
+        <input
+            type="email"
+            id="customerEmail"
+            placeholder="Email address..."
+        >
+
+        <input
+            type="tel"
+            id="customerPhone"
+            placeholder="Phone number..."
+        >
+
+        <input
+            type="text"
+            id="customerCompany"
+            placeholder="Company name..."
+        >
+
+        <button type="submit" id="customerSubmit">
+            + Add Customer
+        </button>
+
+    </form>
+
+    <!-- Search Customers -->
+
+    <div class="customer-controls">
+
+        <input
+            type="text"
+            id="customerSearch"
+            placeholder="Search customers..."
+        >
+
+    </div>
+
+    <!-- Customer List -->
+
+    <div id="customerList" class="customer-list">
+        <!-- Customers generated by JavaScript -->
+    </div>
+
+</section>
+<!-- =================================
+     SETTINGS MANAGEMENT
+================================= -->
+
+<section class="settings-section" id="settings-section">
+
+    <div class="section-header">
+        <div>
+            <h2>Business Settings</h2>
+            <p>Manage your business profile and contact information.</p>
+        </div>
+    </div>
+
+    <form id="settingsForm" class="settings-form">
+
+        <div class="settings-field">
+            <label for="businessName">Business Name</label>
+            <input
+                type="text"
+                id="businessName"
+                placeholder="Enter your business name"
+                required
+            >
+        </div>
+
+        <div class="settings-field">
+            <label for="businessEmail">Business Email</label>
+            <input
+                type="email"
+                id="businessEmail"
+                placeholder="Enter business email"
+            >
+        </div>
+
+        <div class="settings-field">
+            <label for="businessPhone">Business Phone</label>
+            <input
+                type="tel"
+                id="businessPhone"
+                placeholder="Enter business phone"
+            >
+        </div>
+
+        <div class="settings-field">
+            <label for="businessAddress">Business Address</label>
+            <textarea
+                id="businessAddress"
+                rows="3"
+                placeholder="Enter business address"
+            ></textarea>
+        </div>
+
+        <button type="submit" class="settings-save">
+            Save Business Details
+        </button>
+
+        <p id="settingsMessage" class="settings-message"></p>
+
+    </form>
+
+</section>
+                <div class="section-header">
+                    <div>
+                        <h2>Task Manager</h2>
+                        <p>Organize your daily business activities.</p>
+                    </div>
+                </div>
+
+                <!-- Add Task Form -->
+                <form id="taskForm" class="task-form">
+
+                    <input
+                        type="text"
+                        id="taskInput"
+                        placeholder="Enter a new task..."
+                        required
+                    >
+
+                    <select id="taskPriority">
+                        <option value="Low">Low Priority</option>
+                        <option value="Medium" selected>Medium Priority</option>
+                        <option value="High">High Priority</option>
+                    </select>
+
+                    <input
+                        type="date"
+                        id="taskDueDate"
+                        title="Task due date"
+                    >
+
+                    <button type="submit">+ Add Task</button>
+
+                </form>
+
+                <!-- Search and Filter -->
+                <div class="task-controls">
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search tasks..."
+                    >
+
+                    <select id="filterTasks">
+                        <option value="all">All Tasks</option>
+                        <option value="pending">Pending</option>
+                        <option value="completed">Completed</option>
+                    </select>
+
+                </div>
+
+                <!-- Task List -->
+                <div id="taskList" class="task-list">
+                    <!-- Tasks generated by JavaScript -->
+                </div>
+
+            </section>
+
+            <!-- Footer -->
+            <footer>
+                <p>© 2026 BizFlow. Built by Farman Junejo.</p>
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- Keep the original working JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
